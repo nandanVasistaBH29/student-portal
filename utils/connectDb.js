@@ -1,4 +1,5 @@
 import mysql from "mysql";
+// connection to AWS RDS
 export const db = mysql.createConnection({
   host: process.env.AWS_DATABASE_ENDPOINT,
   user: process.env.AWS_DATABASE_USER,
