@@ -1,7 +1,7 @@
 import "../styles/globals.css";
 import "bootstrap/dist/css/bootstrap.css";
 import SSRProvider from "react-bootstrap/SSRProvider";
-import Layout from "../components/layout";
+import Layout from "../components/Layout";
 import { useState, useEffect } from "react";
 function MyApp({ Component, pageProps }) {
   const [domLoaded, setDomLoaded] = useState(false);
