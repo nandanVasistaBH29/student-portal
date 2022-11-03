@@ -21,9 +21,9 @@ const Dashboard = () => {
             </tr>
           </thead>
           <tbody>
-            {students.map((student) => {
+            {students.map((student, index) => {
               return (
-                <tr>
+                <tr key={student.id}>
                   <th scope="row">{student.id}</th>
                   <td>{student.fname}</td>
                   <td>{student.email}</td>
@@ -46,7 +46,7 @@ const Dashboard = () => {
       ) : (
         <div className="d-flex p-2">
           <button onClick={fetchAllStudents} className="btn btn-success">
-            To Load Data &gt; click here
+            To Load Data - click here
           </button>
         </div>
       )}
