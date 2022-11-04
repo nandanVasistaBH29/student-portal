@@ -13,8 +13,7 @@ export async function middleware(req) {
       return NextResponse.redirect(url);
     }
   }
-  if (url.href.includes("/me")) {
-    console.log("hi");
+  if (url.href.includes("/currentuser")) {
     const userCookie = req.cookies.get("access_token");
     if (userCookie === undefined) {
       url.pathname = "/login";
@@ -23,26 +22,5 @@ export async function middleware(req) {
   }
 }
 export const config = {
-  matcher: ["/dashboard/:path*", "/student/:path*", "/me"],
+  matcher: ["/dashboard/:path*", "/student/:path*", "/currentuser/:path*"],
 };
-// import { verify } from "jsonwebtoken";
-// import { NextRequest } from "next/server";
-// const secret = process.env.JWT_KEY;
-
-// export default async function middleware(req) {
-//   const jwt = req.cookies.get("OutsiteJWT");
-//   const url = req.url;
-//   const { pathname } = req.nextUrl;
-//   if (url.includes("/dashboard")) {
-//     if (jwt === undefined) {
-//       return NextResponse.redirect("/admin");
-//     }
-//     try {
-//       verify(jwt, secret);
-//       return NextResponse.next();
-//     } catch (error) {
-//       return NextResponse.redirect("/admin");
-//     }
-//   }
-//   return NextResponse.next();
-// }

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-const Me = () => {
+const Currentuser = () => {
   const [email, setEmail] = useState("");
   const [err, setErr] = useState(false);
   const [student, setStudent] = useState(null);
@@ -176,4 +176,4 @@ const Me = () => {
   );
 };
 
-export default Me;
+export default Currentuser;

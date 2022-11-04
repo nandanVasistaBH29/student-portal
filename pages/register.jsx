@@ -41,7 +41,7 @@ const Register = () => {
         "student-portal-student-mail",
         JSON.stringify(inputs.email)
       );
-      route.push("/me");
+      route.push("/currentuser");
     } catch (err) {
       setCheckIfEmailExists(true);
       route.push("/login");
@@ -69,7 +69,7 @@ const Register = () => {
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
   return (
-    <form className="row mt-4 needs-validation">
+    <form className="row m-4 needs-validation">
       <div className="col-md-4  mt-2">
         <label htmlFor="validationCustom01" className="form-label">
           First name

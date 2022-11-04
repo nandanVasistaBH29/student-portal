@@ -14,7 +14,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <Link href="https://nextjs.org">Student-Portal</Link>
+          Welcome to <Link href={"/"}>Student-Portal</Link>
         </h1>
 
         <Link href={"/register"}>

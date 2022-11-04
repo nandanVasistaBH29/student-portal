@@ -80,7 +80,7 @@ const Forgot_password = () => {
     try {
       verifyOtp(inputs.otp);
       updatePassword();
-      route.push("/");
+      route.push("/login");
     } catch (err) {
       return;
     }

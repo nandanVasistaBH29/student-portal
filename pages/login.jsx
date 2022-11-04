@@ -29,7 +29,7 @@ const Login = () => {
         "student-portal-student-mail",
         JSON.stringify(email)
       );
-      route.push("/me");
+      route.push("/currentuser");
     } catch (err) {
       console.log(err.response.data);
       if (err.response.data === "Either Password or email is wrong")
