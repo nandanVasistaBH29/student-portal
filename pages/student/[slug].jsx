@@ -44,7 +44,7 @@ const Student = () => {
   return (
     <>
       {student ? (
-        <form className="row mt-4 needs-validation">
+        <form className="row m-4 needs-validation">
           <div className="col-md-4  mt-2">
             <label htmlFor="validationCustom01" className="form-label">
               First name

@@ -1,18 +1,27 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useRouter } from "next/router";
 const Currentuser = () => {
+  const route = useRouter();
   const [email, setEmail] = useState("");
   const [err, setErr] = useState(false);
   const [student, setStudent] = useState(null);
 
   useEffect(() => {
-    const studentEmail = localStorage.getItem("student-portal-student-mail");
-    if (studentEmail === undefined) {
-      setErr(true);
-    }
-    fetchStudent(studentEmail);
+    setErr(false);
+    const studentEmail = JSON.parse(
+      localStorage.getItem("student-portal-student-mail")
+    );
     setEmail(studentEmail);
-  }, []);
+    console.log(studentEmail);
+    if (!studentEmail) {
+      setErr(true);
+      route.push("/login");
+      return;
+    }
+    setErr(false);
+    fetchStudent(studentEmail);
+  }, [email]);
   const fetchStudent = async (email) => {
     const res = await axios.get(`/api/get-studentdata?email=${email}`);
     setStudent(res.data[0]);
@@ -21,7 +30,7 @@ const Currentuser = () => {
     <div>
       {" "}
       {student ? (
-        <form className="row mt-4 needs-validation">
+        <form className="row m-4 needs-validation">
           <div className="col-md-4  mt-2">
             <label htmlFor="validationCustom01" className="form-label">
               First name
@@ -170,7 +179,10 @@ const Currentuser = () => {
           </div>
         </form>
       ) : (
-        <div>Loading...</div>
+        <>
+          <div>Loading...</div>
+          {err && <div className="text-danger">you have to log back in</div>}
+        </>
       )}
     </div>
   );

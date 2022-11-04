@@ -5,7 +5,7 @@ export default function handler(req, res) {
   console.log(req.query);
   let q;
   if (id) q = `select * from students where id=${id};`;
-  else q = `select * from students where email=${email};`;
+  else q = `select * from students where email="${email}";`;
   db.query(q, (err, data) => {
     if (err) {
       console.log(err);

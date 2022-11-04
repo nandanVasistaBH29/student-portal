@@ -10,7 +10,7 @@ const Dashboard = () => {
   };
 
   return (
-    <Container className="mt-2">
+    <Container className="m-2">
       {students ? (
         <table className="table">
           <thead className="thead-dark">
