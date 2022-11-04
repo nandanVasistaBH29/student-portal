@@ -13,7 +13,7 @@ const Admin = () => {
   const [password, setPassword] = useState("");
   const handleClick = async (e) => {
     e.preventDefault();
-
+    if (email === "" || password === "") return;
     try {
       const res = await axios.post("/api/admin-login", {
         email,
@@ -56,7 +56,7 @@ const Admin = () => {
             required
           />
         </Form.Group>
-        <Button onClick={(e) => handleClick(e)} variant="primary" type="submit">
+        <Button onClick={(e) => handleClick(e)} variant="primary">
           Login
         </Button>
       </Form>
