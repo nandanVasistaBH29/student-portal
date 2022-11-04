@@ -14,7 +14,7 @@ const Student = () => {
   };
   useEffect(() => {
     fetchStudent();
-  }, []);
+  }, [slug]);
   const handleChange = (e) => {
     setAnyChanges(true);
     setSuccess(false);
