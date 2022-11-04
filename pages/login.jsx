@@ -75,7 +75,7 @@ const Login = () => {
         </Form.Group>
         <Container>
           <Button
-            onSubmit={(e) => handleSubmit(e)}
+            onClick={(e) => handleSubmit(e)}
             variant="primary"
             type="submit"
           >

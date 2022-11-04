@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
-
-export async function middleware(req) {
+export async function middleware2(req) {
   const url = req.nextUrl.clone();
   if (url.href.includes("/currentuser")) {
     const userCookie = req.cookies.get("access_token");
@@ -9,6 +8,8 @@ export async function middleware(req) {
       return NextResponse.redirect(url);
     }
   }
+}
+export async function middleware(req) {
   // get all the details of a cookie
   if (url.href.includes("/dashboard") || url.href.includes("/student")) {
     const adminCookie = req.cookies.get("admin_access_token");

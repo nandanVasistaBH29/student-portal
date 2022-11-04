@@ -34,6 +34,9 @@ const Register = () => {
     }
     try {
       const res = await axios.post("/api/register", inputs);
+      console.log("====================================");
+      console.log(res);
+      console.log("====================================");
       if (localStorage.getItem("student-portal-student-mail")) {
         localStorage.removeItem("student-portal-student-mail"); // same device can be used by 2 diff accounts
       }
@@ -259,7 +262,7 @@ const Register = () => {
         <button
           className="btn btn-primary"
           type="submit"
-          onSubmit={handleSubmit}
+          onClick={handleSubmit}
         >
           Submit form
         </button>
