@@ -1,5 +1,6 @@
 // react and next
 import { useState } from "react";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import axios from "axios";
 // bootstap
@@ -21,7 +22,14 @@ const Login = () => {
         email,
         password,
       });
-      route.push("/");
+      if (localStorage.getItem("student-portal-student-mail")) {
+        localStorage.removeItem("student-portal-student-mail"); // same device can be used by 2 diff accounts
+      }
+      localStorage.setItem(
+        "student-portal-student-mail",
+        JSON.stringify(email)
+      );
+      route.push("/me");
     } catch (err) {
       console.log(err.response.data);
       if (err.response.data === "Either Password or email is wrong")
@@ -65,14 +73,21 @@ const Login = () => {
             </Form.Text>
           )}
         </Form.Group>
-        <Button
-          onClick={(e) => handleSubmit(e)}
-          variant="primary"
-          type="submit"
-        >
-          Login
-        </Button>
+        <Container>
+          <Button
+            onClick={(e) => handleSubmit(e)}
+            variant="primary"
+            type="submit"
+          >
+            Login
+          </Button>
+        </Container>
       </Form>
+      <Link href="/forgot_password">
+        <Button className="p-2 m-2" variant="success" type="button">
+          Forgot Password
+        </Button>
+      </Link>
     </Container>
   );
 };

@@ -1,15 +1,16 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import { Container } from "react-bootstrap";
 const Dashboard = () => {
   const [students, setStudents] = useState("");
-  const fetchAllStudents = async () => {
-    const res = await axios.get("/api/get-all-studentdata");
+  const fetchAllStudents = async (sqlQuery) => {
+    const res = await axios.get(`/api/get-all-studentdata?querydb=${sqlQuery}`);
     setStudents(res.data);
   };
 
   return (
-    <div>
+    <Container className="mt-2">
       {students ? (
         <table className="table">
           <thead className="thead-dark">
@@ -50,7 +51,7 @@ const Dashboard = () => {
           </button>
         </div>
       )}
-    </div>
+    </Container>
   );
 };
 

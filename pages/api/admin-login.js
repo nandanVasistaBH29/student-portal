@@ -2,7 +2,6 @@
 import { db } from "../../utils/connectDb";
 import jwt from "jsonwebtoken";
 import cookie from "cookie";
-import * as jose from "jose";
 
 export default function handler(req, res) {
   const q = "select * from admin where email = ?";

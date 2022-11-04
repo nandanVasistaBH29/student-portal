@@ -18,6 +18,7 @@ const Logout = () => {
       },
       body: JSON.stringify({}),
     });
+    localStorage.removeItem("student-portal-student-mail");
     route.push("/");
   };
   return (

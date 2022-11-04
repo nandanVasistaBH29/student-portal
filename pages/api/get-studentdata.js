@@ -1,8 +1,11 @@
 import { db } from "../../utils/connectDb";
 
 export default function handler(req, res) {
-  //   console.log(req.query);
-  const q = `select * from students where id=${req.query.q};`;
+  const { id, email } = req.query;
+  console.log(req.query);
+  let q;
+  if (id) q = `select * from students where id=${id};`;
+  else q = `select * from students where email=${email};`;
   db.query(q, (err, data) => {
     if (err) {
       console.log(err);

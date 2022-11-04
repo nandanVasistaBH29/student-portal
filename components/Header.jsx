@@ -24,8 +24,8 @@ const Header = () => {
               <Link href={"/admin"}>
                 <NavDropdown.Item href="/admin">Admin</NavDropdown.Item>
               </Link>
-              <Link href={"/about"}>
-                <NavDropdown.Item href="/about">About</NavDropdown.Item>
+              <Link href={"/me"}>
+                <NavDropdown.Item href="/me">Me</NavDropdown.Item>
               </Link>
               <NavDropdown.Divider />
               <Link href={"/logout"}>

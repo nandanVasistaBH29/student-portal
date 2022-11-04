@@ -16,6 +16,7 @@ const Register = () => {
     city: "",
     zip: "",
     markscard10: "",
+    phone: "",
   });
 
   const [checkIfEmailExists, setCheckIfEmailExists] = useState(false);
@@ -33,19 +34,18 @@ const Register = () => {
     }
     try {
       const res = await axios.post("/api/register", inputs);
-      console.log(res.data);
+      if (localStorage.getItem("student-portal-student-mail")) {
+        localStorage.removeItem("student-portal-student-mail"); // same device can be used by 2 diff accounts
+      }
+      localStorage.setItem(
+        "student-portal-student-mail",
+        JSON.stringify(inputs.email)
+      );
+      route.push("/me");
     } catch (err) {
       setCheckIfEmailExists(true);
       route.push("/login");
     }
-
-    // setWrongWeakPassword(false) && setCheckIfEmailExists(false) first
-    // make a query to db if the email already exists
-    // if true setCheckIfEmailExists(true)
-    // and return
-    // else send email and password
-    // and wait for the response
-    // if password entered is wrong setWrongWeakPassword(true)
   };
   function checkForWeakPassword(password) {
     setWeakPassword(false);
@@ -154,6 +154,24 @@ const Register = () => {
           <div className="invalid-feedback">Please choose a username.</div>
         </div>
       </div>
+      <div className="col-md-4 mt-2">
+        <label htmlFor="validationCustomUsername" className="form-label">
+          Phone
+        </label>
+        <div className="input-group has-validation">
+          <input
+            type="text"
+            name="phone"
+            className="form-control"
+            aria-describedby="inputGroupPrepend"
+            required
+            value={inputs.phone}
+            onChange={(e) => handleChange(e)}
+          />
+          <div className="invalid-feedback">Enter Phone Number</div>
+        </div>
+      </div>
+
       <div className="col-md-4 mt-2">
         <label htmlFor="validationCustom03" className="form-label">
           City
