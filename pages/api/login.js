@@ -1,8 +1,10 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+// /api/login
+// POST
+
 import { db } from "../../utils/connectDb";
-import bcrypt from "bcryptjs";
-import jwt from "jsonwebtoken";
-import cookie from "cookie";
+import bcrypt from "bcryptjs"; // to hash password
+import jwt from "jsonwebtoken"; // for auth
+import cookie from "cookie"; // for secured auth
 
 export default function handler(req, res) {
   const q = "select * from students where email=?";

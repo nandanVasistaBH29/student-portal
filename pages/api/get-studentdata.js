@@ -1,5 +1,8 @@
+// /api/get-studentdata/
+// /api/get-studentdata?id=<studentid>
+// /api/get-studentdata?emaik=<email>
+// GET
 import { db } from "../../utils/connectDb";
-
 export default function handler(req, res) {
   const { id, email } = req.query;
   console.log(req.query);

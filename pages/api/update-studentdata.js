@@ -1,3 +1,5 @@
+// /api/update-studentdata
+// PUT
 import { db } from "../../utils/connectDb";
 
 export default function handler(req, res) {

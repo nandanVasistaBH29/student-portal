@@ -1,5 +1,8 @@
 // this very similar to update student but one main catch
 // is to hash the new password
+
+// /api/student-forgot-password?email=<>phone=<>
+// PUT
 import { db } from "../../utils/connectDb";
 import bcrypt from "bcryptjs";
 

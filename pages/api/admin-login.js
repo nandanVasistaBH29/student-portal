@@ -1,4 +1,5 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+// /api/admin-login
+// POST
 import { db } from "../../utils/connectDb";
 import jwt from "jsonwebtoken";
 import cookie from "cookie";

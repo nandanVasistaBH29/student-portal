@@ -1,4 +1,5 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+// /api/register
+// POST
 import { db } from "../../utils/connectDb";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";

@@ -1,3 +1,5 @@
+// /api/delete-studentdata?q=id
+// DELETE
 import { db } from "../../utils/connectDb";
 
 export default function handler(req, res) {
