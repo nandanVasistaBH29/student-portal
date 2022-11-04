@@ -4,9 +4,9 @@ import { db } from "../../utils/connectDb";
 import bcrypt from "bcryptjs";
 
 export default function handler(req, res) {
-  const { email, password } = req.body;
+  const { email, password, phone } = req.body;
   // first check if email exists
-  const q = `select * from students where email='${email}';`;
+  const q = `select * from students where email='${email} and phone='${phone}';`;
   db.query(q, (err, data) => {
     if (err) {
       console.log(err);

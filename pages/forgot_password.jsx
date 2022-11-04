@@ -87,7 +87,11 @@ const Forgot_password = () => {
     updatePassword();
   };
   const updatePassword = async () => {
-    const data = { email: inputs.email, password: inputs.password };
+    const data = {
+      email: inputs.email,
+      password: inputs.password,
+      phone: inputs.phone,
+    };
     const res = await axios.put("/api/student-forgot-password", data);
   };
   return (

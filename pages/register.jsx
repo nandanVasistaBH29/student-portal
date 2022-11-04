@@ -156,7 +156,7 @@ const Register = () => {
       </div>
       <div className="col-md-4 mt-2">
         <label htmlFor="validationCustomUsername" className="form-label">
-          Phone
+          Phone <b>With country code</b>
         </label>
         <div className="input-group has-validation">
           <input
@@ -165,6 +165,7 @@ const Register = () => {
             className="form-control"
             aria-describedby="inputGroupPrepend"
             required
+            placeholder="+919353457..."
             value={inputs.phone}
             onChange={(e) => handleChange(e)}
           />
