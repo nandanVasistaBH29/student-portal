@@ -69,7 +69,7 @@ const Register = () => {
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
   return (
-    <form className="row m-4 needs-validation">
+    <form className="row m-4 ">
       <div className="col-md-4  mt-2">
         <label htmlFor="validationCustom01" className="form-label">
           First name
@@ -259,7 +259,7 @@ const Register = () => {
         <button
           className="btn btn-primary"
           type="submit"
-          onClick={handleSubmit}
+          onSubmit={handleSubmit}
         >
           Submit form
         </button>
