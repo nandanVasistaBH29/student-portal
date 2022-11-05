@@ -23,7 +23,7 @@ const Dashboard = () => {
   const handleSearchClick = async () => {
     try {
       if (search) {
-        await fetchAllStudents(`where email like '%${search}%'`);
+        await fetchAllStudents(`where email like '%${search}%';`);
       }
     } catch (err) {
       console.log(err);
