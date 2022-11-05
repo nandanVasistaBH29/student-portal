@@ -4,6 +4,10 @@ import { db } from "../../utils/connectDb";
 
 export default function handler(req, res) {
   let q = "select * from students ";
+  const querydb = req.query.querydb;
+  if (querydb) {
+    q = q + querydb;
+  }
 
   db.query(q, (err, data) => {
     if (err) {
