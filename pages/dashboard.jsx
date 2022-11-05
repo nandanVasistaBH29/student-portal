@@ -20,15 +20,10 @@ const Dashboard = () => {
       setErr(true);
     }
   };
-  const handleSearchChange = async (e) => {
+  const handleSearchClick = async () => {
     try {
-      setSearch(e.target.value);
       if (search) {
-        const query = search + "";
-        console.log("quert " + query);
-        await fetchAllStudents(
-          `where email like '%${query}%' or fname like '%${query}%';`
-        );
+        await fetchAllStudents(`where email like '%${search}%'`);
       }
     } catch (err) {
       console.log(err);
@@ -63,13 +58,13 @@ const Dashboard = () => {
               <input
                 type="search"
                 className="form-control"
-                placeholder="search by email and first name"
+                placeholder="search by email"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
               />
               <button
                 className="btn btn-primary m-2"
-                onClick={(e) => handleSearchChange(e)}
+                onClick={handleSearchClick}
               >
                 <label className="form-label" htmlFor="form1">
                   Search
