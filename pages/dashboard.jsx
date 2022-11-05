@@ -23,10 +23,13 @@ const Dashboard = () => {
   const handleSearchChange = async (e) => {
     try {
       setSearch(e.target.value);
-      if (search)
+      if (search) {
+        const query = search + "";
+        console.log("quert " + query);
         await fetchAllStudents(
-          `where email like '%${search}%' or fname like '%${search}%';`
+          `where email like '%${query}%' or fname like '%${query}%';`
         );
+      }
     } catch (err) {
       console.log(err);
     }
