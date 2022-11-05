@@ -9,8 +9,8 @@ const Dashboard = () => {
   const [customItem, setCustomItem] = useState(undefined); //for search
   const [err, setErr] = useState(false);
   const fetchAllStudents = async (sqlQuery) => {
-    setErr(false);
     try {
+      setErr(false);
       const res = await axios.get(
         `/api/get-all-studentdata?querydb=${sqlQuery}`
       );
@@ -21,11 +21,15 @@ const Dashboard = () => {
     }
   };
   const handleSearchChange = async (e) => {
-    setSearch(e.target.value);
-    if (search)
-      await fetchAllStudents(
-        `where email like '%${search}%' or fname like '%${search}%';`
-      );
+    try {
+      setSearch(e.target.value);
+      if (search)
+        await fetchAllStudents(
+          `where email like '%${search}%' or fname like '%${search}%';`
+        );
+    } catch (err) {
+      console.log(err);
+    }
   };
   return (
     <>
