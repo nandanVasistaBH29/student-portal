@@ -65,10 +65,12 @@ const Dashboard = () => {
                 className="form-control"
                 placeholder="search by email and first name"
                 value={search}
-                disabled
-                onChange={(e) => handleSearchChange(e)}
+                onChange={(e) => setSearch(e.target.value)}
               />
-              <button className="btn btn-primary m-2">
+              <button
+                className="btn btn-primary m-2"
+                onClick={(e) => handleSearchChange(e)}
+              >
                 <label className="form-label" htmlFor="form1">
                   Search
                 </label>
