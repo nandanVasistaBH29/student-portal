@@ -23,7 +23,9 @@ const Dashboard = () => {
   const handleSearchClick = async () => {
     try {
       if (search) {
-        await fetchAllStudents(`where email like '%${search}%'`);
+        await fetchAllStudents(
+          `where email like '%${search}%' or fname like '%${search}%'`
+        );
       }
     } catch (err) {
       console.log(err);
@@ -58,7 +60,7 @@ const Dashboard = () => {
               <input
                 type="search"
                 className="form-control"
-                placeholder="search by email"
+                placeholder="search by email,fname"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
               />
