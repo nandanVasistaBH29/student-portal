@@ -29,6 +29,7 @@ const Dashboard = () => {
       console.log(err);
     }
   };
+
   return (
     <>
       <Container className="m-2">
@@ -58,7 +59,7 @@ const Dashboard = () => {
               <input
                 type="search"
                 className="form-control"
-                placeholder="search by email and first name"
+                placeholder="search feature coming soon"
                 value={search}
                 disabled
                 onChange={(e) => setSearch(e.target.value)}

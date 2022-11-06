@@ -50,9 +50,7 @@ export default function handler(req, res) {
           path: "/", //everywhere
         })
       );
-      console.log("====================================");
       console.log(token);
-      console.log("====================================");
       //Set-Cookie is the name of the header
       return res.status(200).json("user has been created");
     });

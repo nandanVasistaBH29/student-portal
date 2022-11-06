@@ -29,6 +29,7 @@ const Login = () => {
         "student-portal-student-mail",
         JSON.stringify(email)
       );
+      console.log(res);
       route.push("/currentuser");
     } catch (err) {
       console.log(err.response.data);
